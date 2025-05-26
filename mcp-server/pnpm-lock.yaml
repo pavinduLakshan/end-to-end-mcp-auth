@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@brionmario-experimental/mcp-express':
-    specifier: ^0.0.4
-    version: 0.0.4(express@4.18.2)
+  '@asgardeo/mcp-express':
+    specifier: ^0.1.0
+    version: 0.1.0(express@4.18.2)
   '@modelcontextprotocol/sdk':
     specifier: ^1.11.3
     version: 1.11.3
@@ -37,20 +37,20 @@ devDependencies:
 
 packages:
 
-  /@brionmario-experimental/mcp-express@0.0.4(express@4.18.2):
-    resolution: {integrity: sha512-AivRPEzJVVcU1R4ccFn2Rtu6+Bi8nFo/GPW67HyjWLy6ureZVx9+DcK9vtue1MC88H4DGF9GTGMO/APUZrxeXA==}
+  /@asgardeo/mcp-express@0.1.0(express@4.18.2):
+    resolution: {integrity: sha512-4kNeOCEZJhy7lWzhn/OLMsA7Hu6v1snW+kxHSiW/t6GBO2mdGyCcX3N8Vr7oEJadqxyo92j1sAoQu7aW6rE/AA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       express: '>=4'
     dependencies:
-      '@brionmario-experimental/mcp-node': 0.0.4
+      '@asgardeo/mcp-node': 0.1.0
       cors: 2.8.5
       express: 4.18.2
       tslib: 2.8.1
     dev: false
 
-  /@brionmario-experimental/mcp-node@0.0.4:
-    resolution: {integrity: sha512-e49Jae8s5Z4FU/TVAUBrZ3oANLo2UrmdQIwtH+4+pC0ZQ8mClfeL7CzoYvTnbKQfz+P0Esq7NTK1ODgLq3rkWw==}
+  /@asgardeo/mcp-node@0.1.0:
+    resolution: {integrity: sha512-zv2o+RlQd5TzI8Jhq99Ibm+dtzSr3F7RAWbtgGUqSgvoMjYQP1eMnUmt6+tSk+nEwY5xO52NuiqR/cJU7kT/5A==}
     engines: {node: '>=18.0.0'}
     dependencies:
       jose: 6.0.11

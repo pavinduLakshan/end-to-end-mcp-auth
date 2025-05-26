@@ -13,6 +13,7 @@ createRoot(document.getElementById('root')!).render(
         clientID: 'iYt9lvROrGJ_0E2M5gSqNp5PjEUa',
         baseUrl: 'https://api.asgardeo.io/t/pavinduorg',
         scope: ['openid', 'profile'],
+        storage: "sessionStorage"
       } }
     >
       <App />

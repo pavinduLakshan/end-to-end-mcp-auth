@@ -4,10 +4,19 @@ import express from 'express';
 import { Request, Response } from 'express';
 import { z } from 'zod';
 import cors from 'cors';
+import {McpAuthServer} from '@asgardeo/mcp-express';
+
+// Initialize McpAuthServer with baseUrl
+const mcpAuthServer = new McpAuthServer({
+  baseUrl: "https://api.asgardeo.io/t/pavinduorg",
+  issuer: "https://api.asgardeo.io/t/pavinduorg/oauth2/token"
+});
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
+app.use(mcpAuthServer.router());
 
 function getServer() {
   // Import the MCP server and transport classes
@@ -27,7 +36,7 @@ function getServer() {
     return server;
 }
 
-app.post('/mcp', async (req: Request, res: Response) => {
+app.post('/mcp', mcpAuthServer.protect(), async (req: Request, res: Response) => {
   // In stateless mode, create a new instance of transport and server for each request
   // to ensure complete isolation. A single instance would cause request ID collisions
   // when multiple clients connect concurrently.
@@ -58,31 +67,6 @@ app.post('/mcp', async (req: Request, res: Response) => {
     }
   }
 });
-
-app.get('/mcp', async (req: Request, res: Response) => {
-  console.log('Received GET MCP request');
-  res.writeHead(405).end(JSON.stringify({
-    jsonrpc: "2.0",
-    error: {
-      code: -32000,
-      message: "Method not allowed."
-    },
-    id: null
-  }));
-});
-
-app.delete('/mcp', async (req: Request, res: Response) => {
-  console.log('Received DELETE MCP request');
-  res.writeHead(405).end(JSON.stringify({
-    jsonrpc: "2.0",
-    error: {
-      code: -32000,
-      message: "Method not allowed."
-    },
-    id: null
-  }));
-});
-
 
 // Start the server
 const PORT = 3000;
