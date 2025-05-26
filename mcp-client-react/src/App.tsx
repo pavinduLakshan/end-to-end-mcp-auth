@@ -38,10 +38,9 @@ function App() {
             "http://localhost:3000/mcp"
           );
 
-          const result = await auth(authProvider, {
+          await auth(authProvider, {
             serverUrl: "http://localhost:3000/mcp",
           });
-          console.log("Authentication result:", result);
         }
       }
 
