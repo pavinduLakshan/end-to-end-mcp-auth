@@ -10,8 +10,8 @@ createRoot(document.getElementById('root')!).render(
       config={ {
         signInRedirectURL: 'http://localhost:5173',
         signOutRedirectURL: 'http://localhost:5173',
-        clientID: 'iYt9lvROrGJ_0E2M5gSqNp5PjEUa',
-        baseUrl: 'https://api.asgardeo.io/t/pavinduorg',
+        clientID: 'cmvfMf9FihCr2JFrybf6AQGVd2Ma',
+        baseUrl: 'https://dev.api.asgardeo.io/t/pavindu119',
         scope: ['openid', 'profile'],
         storage: "sessionStorage"
       } }

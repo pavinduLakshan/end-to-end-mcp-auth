@@ -4,19 +4,19 @@ import express from 'express';
 import { Request, Response } from 'express';
 import { z } from 'zod';
 import cors from 'cors';
-import {McpAuthServer} from '@asgardeo/mcp-express';
+// import {McpAuthServer} from '@asgardeo/mcp-express';
 
 // Initialize McpAuthServer with baseUrl
-const mcpAuthServer = new McpAuthServer({
-  baseUrl: "https://api.asgardeo.io/t/pavinduorg",
-  issuer: "https://api.asgardeo.io/t/pavinduorg/oauth2/token"
-});
+// const mcpAuthServer = new McpAuthServer({
+//   baseUrl: "https://api.asgardeo.io/t/pavinduorg",
+//   issuer: "https://api.asgardeo.io/t/pavinduorg/oauth2/token"
+// });
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(mcpAuthServer.router());
+// app.use(mcpAuthServer.router());
 
 function getServer() {
   // Import the MCP server and transport classes
@@ -26,17 +26,17 @@ function getServer() {
     });
 
     server.tool(
-  "Get vet information",
+  "thilinafy",
   { message: z.string() },
   async ({ message }) => ({
-    content: [{ type: "text", text: `Tool echo: ${message}` }]
+    content: [{ type: "text", text: `THILINA SAYS echo: ${message}` }]
   })
 );
 
     return server;
 }
 
-app.post('/mcp', mcpAuthServer.protect(), async (req: Request, res: Response) => {
+app.post('/mcp', async (req: Request, res: Response) => {
   // In stateless mode, create a new instance of transport and server for each request
   // to ensure complete isolation. A single instance would cause request ID collisions
   // when multiple clients connect concurrently.
@@ -69,7 +69,7 @@ app.post('/mcp', mcpAuthServer.protect(), async (req: Request, res: Response) =>
 });
 
 // Start the server
-const PORT = 3000;
+const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`MCP Stateless Streamable HTTP Server listening on port ${PORT}`);
 });
